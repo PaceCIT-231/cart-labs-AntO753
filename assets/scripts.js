@@ -9,8 +9,27 @@ function addToCart(cookie) {
         chocolate chip: 25
     */
    
-   console.log('The user is adding this type of cookie to their cart: ' , cookie) 
+    console.log('The user is adding this type of cookie to their cart: ' , cookie) 
+        itemCount++
+            console.log(itemCount)
 
+    if (cookie == "peanut butter") {
+        currentPrice = 20 + currentPrice
+    }
+
+    else if (cookie == "sandies") {
+        currentPrice = 30 + currentPrice
+    }
+
+    else if(cookie == "party press") {
+        currentPrice = 35 + currentPrice
+    }
+
+    else if(cookie == "chocolate chip") {
+        currentPrice = 25 + currentPrice
+    }
+
+    console.log(currentPrice)
    //add 1 to the itemCount variable
    //add the correct price to the currentPrice variable
 
@@ -19,5 +38,5 @@ function addToCart(cookie) {
 function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
-    
+    console.log('You are purchasing ' , itemCount, ' items! Your total costs is ', currentPrice , 'dollars!')
 }
