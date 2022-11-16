@@ -38,5 +38,5 @@ function addToCart(cookie) {
 function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
-    console.log('You are purchasing ' , itemCount, ' items! Your total costs is ', currentPrice , 'dollars!')
+    window.alert('You are purchasing ' + itemCount + ' items! Your total costs is ' + currentPrice + ' dollars!')
 }
