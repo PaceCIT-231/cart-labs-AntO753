@@ -30,8 +30,15 @@ function addToCart(cookie) {
     }
 
     console.log(currentPrice)
-   //add 1 to the itemCount variable
-   //add the correct price to the currentPrice variable
+
+    let cartprint = document.querySelector("#cartItems")
+        cartprint.innerHTML = itemCount
+
+    let cartprintcookie = document.querySelector(".hoverText")
+        cartprintcookie.innerHTML = currentPrice
+
+    //add 1 to the itemCount variable
+    //add the correct price to the currentPrice variable
 
 }
 
