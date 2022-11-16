@@ -42,8 +42,22 @@ function addToCart(cookie) {
 
 }
 
+function darkMode() {
+    // add your code here
+    document.querySelector("body").style.color = "white"
+    document.querySelector("body").style.backgroundColor = "black"
+
+} 
+
 function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
-    console.log('You are purchasing ' , itemCount, ' items! Your total costs is ', currentPrice , 'dollars!')
+    window.prompt('Please provide us with your Address and your Name so we can send you a receipt and your order.' + "\nYou've purchased " + itemCount + " items.\nYour order comes out to " + currentPrice + " dollars.")
+
+    currentPrice = 0
+        let cartprintcookie = document.querySelector(".hoverText")
+        cartprintcookie.innerHTML = currentPrice
+    itemCount = 0
+        let cartprint = document.querySelector("#cartItems")
+        cartprint.innerHTML = itemCount
 }
