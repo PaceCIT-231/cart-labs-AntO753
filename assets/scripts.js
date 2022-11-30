@@ -1,4 +1,18 @@
-let currentPrice=0, itemCount=0
+const cart = {
+    currentPrice: 0,
+    items: [],
+    addItem: function(cookie, price) {
+        // add a cookie (string) to the items array
+        this.items.push(cookie)
+        //add the price (number) to the currentPrice properties
+        this.currentPrice = price + this.currentPrice
+    },
+    clear: function() {
+        //reset the currentPrice and items properties
+        this.currentPrice = 0
+        this.items = []
+    },
+}
 
 function addToCart(cookie) {
     /* 
@@ -9,34 +23,29 @@ function addToCart(cookie) {
         chocolate chip: 25
     */
    
-    console.log('The user is adding this type of cookie to their cart: ' , cookie) 
-        itemCount++
-            console.log(itemCount)
+    console.log('The user is adding this type of cookie to their cart: ' , cookie)
 
     if (cookie == "peanut butter") {
-        currentPrice = 20 + currentPrice
+        cart.addItem(cookie, 20)
     }
 
     else if (cookie == "sandies") {
-        currentPrice = 30 + currentPrice
+        cart.addItem(cookie, 30)
     }
 
     else if(cookie == "party press") {
-        currentPrice = 35 + currentPrice
+        cart.addItem(cookie, 35)
     }
 
     else if(cookie == "chocolate chip") {
-        currentPrice = 25 + currentPrice
+        cart.addItem(cookie, 25)
     }
 
-    console.log(currentPrice)
-
     let cartprint = document.querySelector("#cartItems")
-        cartprint.innerHTML = itemCount
+        cartprint.innerHTML = cart.items.length
 
     let cartprintcookie = document.querySelector(".hoverText")
-        cartprintcookie.innerHTML = currentPrice
-
+        cartprintcookie.innerHTML = cart.currentPrice
     //add 1 to the itemCount variable
     //add the correct price to the currentPrice variable
 
@@ -52,12 +61,12 @@ function darkMode() {
 function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
-    window.prompt('Please provide us with your Address and your Name so we can send you a receipt and your order.' + "\nYou've purchased " + itemCount + " items.\nYour order comes out to " + currentPrice + " dollars.")
+    window.prompt('Please provide us with your Address and your Name so we can send you a receipt and your order.' + "\nYou've purchased " + cart.items.length + " items.\nYour order comes out to " + cart.currentPrice + " dollars.")
 
-    currentPrice = 0
+    cart.clear()
         let cartprintcookie = document.querySelector(".hoverText")
-        cartprintcookie.innerHTML = currentPrice
-    itemCount = 0
+        cartprintcookie.innerHTML = cart.items.length
+    //itemCount = 0
         let cartprint = document.querySelector("#cartItems")
-        cartprint.innerHTML = itemCount
+        cartprint.innerHTML = cart.currentPrice
 }
